@@ -3,7 +3,21 @@
 
 <div id="app">
   <ul>
-    <li v-for="cor in cores" :class="cor"> {{ cor }}</li>
+    <li v-for="(cor, i) in cores">{{ cor }} - {{ i }}</li>
+  </ul>
+  <hr>
+  <ul>
+    <li v-for="pessoa in pessoas">
+      {{ pessoa.nome }}
+    </li>
+  </ul>
+  <hr>
+  <ul>
+    <li v-for="pessoa in pessoas">
+      <div v-for="(valor, chave, index) in pessoa">
+        {{ chave }} = {{ valor }} ({{ index }})
+      </div>
+    </li>
   </ul>
 </div>
 
