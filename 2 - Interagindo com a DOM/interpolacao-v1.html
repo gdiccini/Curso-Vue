@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+<div id="app">
+  <p>{{ contador }}</p>
+  <button v-on:click="add">Somar 1</button>
+  <p>{{ contador > 10 ? 'Maior que 10' : 'Menor que 10' }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      contador: 0
+    },
+    methods: {
+      add(step, event) {
+        this.contador++;
+      },
+    },
+  })
+</script>
+
+<style>
+  .mouseMove {
+    background-color: red;
+    height: 30px;
+    font-size: 20px;
+  }
+</style>

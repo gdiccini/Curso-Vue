@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+<div id="app">
+  <p>{{ contador }}</p>
+  <button v-on:click="add(5, $event)">Somar 5</button>
+  <p class="mouseMove" v-on:mousemove="updateXY">Mouse: {{ x }} e {{ y }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      x: 0,
+      y: 0,
+      contador: 0
+    },
+    methods: {
+      add(step, event) {
+        this.contador += step;
+      },
+      updateXY(event) {
+        this.x = event.clientX;
+        this.y = event.clientY;
+      }
+    },
+  })
+</script>
+
+<style>
+  .mouseMove {
+    background-color: red;
+    height: 30px;
+    font-size: 20px;
+  }
+</style>

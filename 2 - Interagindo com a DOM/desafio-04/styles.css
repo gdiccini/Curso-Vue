@@ -1,0 +1,57 @@
+#efeito {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+}
+
+.destaque {
+	background-color: red;
+	width: 200px !important;
+}
+
+.destaque2 {
+	background-color: red;
+	height: 20px;
+	width: 200px !important;
+}
+
+.encolher {
+	background-color: gray;
+	width: 50px !important;
+}
+
+.turnblue {
+	background-color: blue;
+}
+
+.biggersize {
+	font-size: 30px;
+}
+
+.rotateClass {
+	transform: rotate(45deg);
+}
+
+.progressBar {
+	position: relative;
+	display: flex;
+	width: 400px;
+	height: 30px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.progress {
+	border-radius: 5px;
+	background-color: green;
+	height: 100%;
+}
+
+.progressPercentage {
+	position: absolute;
+	/* height: 100%; */
+	margin: 0;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
