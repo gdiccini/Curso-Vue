@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Matador de Monstro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="panel scores">
+            <div class="score">
+                <h1>Jogador</h1>
+                <div class="life-bar">
+                    <div class="life" :class="{danger: heroLife < 20}" :style="{width: `${heroLife}%`}"></div>
+                </div>
+                <div>{{heroLife}}%</div>
+            </div>
+            <div class="score">
+                <h1>Monstro</h1>
+                <div class="life-bar">
+                    <div class="life" :class="{danger: monsterLife < 20}" :style="{width: `${monsterLife}%`}"></div>
+                </div>
+                <div>{{monsterLife}}%</div>
+            </div>
+        </div>
+        <div class="panel result">
+            <div class="win" v-show="playerWins">Você ganhou!!! :)</div>
+            <div class="lose" v-show="monsterWins">Você perdeu! :(</div>
+        </div>
+        <div class="panel buttons">
+            <template v-if="gameOn">
+                <button class="btn attack" @click="atakTurn">Ataque</button>
+                <button class="btn especial-attack" @click="specialAtkTurn">Ataque Especial</button>
+                <button class="btn heal" @click="healTurn">Curar</button>
+                <button class="btn give-up" @click="giveUp">{{ monsterLife == 0 || heroLife == 0 ? 'Jogar Novamente' : 'Desistir'}}</button>
+            </template>
+            <button class="btn new-game" v-show="!gameOn" @click="gameOn = !gameOn">Iniciar Jogo</button>
+        </div>
+        <div class="panel logs">
+            <ul>
+                <li v-for="action in actions" :class="actionClass(action)">{{ action }}</li>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
